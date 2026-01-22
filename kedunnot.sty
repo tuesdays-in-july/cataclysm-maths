@@ -1,0 +1,69 @@
+%%Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{kedunnot}[2024/10/21 KED's personal UNiversal NOTation]
+
+\RequirePackage{amsmath, amssymb}    %% symbols, etc.
+\RequirePackage{mathrsfs}     %% power set notation
+\RequirePackage{graphicx}    %% useful; needed for loopies
+\RequirePackage{physics}    %% notation; also \dd
+%% unused packages {mathtools, floatrow} 
+
+\ProcessOptions\relax
+
+%% reformats numbered lists: 1, 1.1, 1.1.1, 1.2, 2...
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+
+%% new symbol for itemized lists; change bullets on a case-by-case basis
+\newcommand{\loopy}{\mathbin{\text{\rotatebox[origin=c]{180}{$\looparrowleft$}}}}
+\renewcommand{\labelitemi}{$\loopy$}
+\renewcommand{\labelitemii}{$\loopy$}
+\renewcommand{\labelitemiii}{$\loopy$}
+\renewcommand{\labelitemiv}{$\loopy$}
+
+\newcommand{\quotes}[1]{\text{``#1"}}   %% better text formatting
+
+\let\twowayimplies\iff
+\renewcommand{\iff}{\leftrightarrow}
+\let\restricts\upharpoonright
+\newcommand{\pwrset}{\mathscr{P}}
+\renewcommand{\slash}[2]{\left( {{^{#1}/}_{#2}}\right)}     %% simplified fractions
+\newcommand{\nin}{\not\in}
+
+\newcommand{\natlog}[1]{\text{ln\,(}#1\text{)\,}}   %% ln(x)
+\newcommand{\loga}[2]{{\text{log}_{#1}}(#2)\,}      %% log_a(b)
+
+\newcommand{\limi}[3]{\raisebox{.25em}{$\lim\limits_{{#1}\to{#2}}$}{\big[}{#3}{\big]}}      %% limits
+
+\newcommand{\deriv}[3]{{\frac{\dd#1}{\dd#2}}\Big[{#3}\Big]}   
+\newcommand{\parti}[3]{{\frac{\partial #1}{\partial #2}}\Big[{#3}\Big]} 
+%% \mainit has equation support, \basint is just a bounded integral symbol
+\newcommand{\mainint}[3]{\underset{{#2}}{\overset{{#1}}{\int}}\Big[{#3}\Big]}
+\newcommand{\basint}[2]{\underset{{#2}}{\overset{{#1}}{\int}}}
+
+\newcommand{\seri}[3]{\underset{{#2}}{\overset{{#1}}{\sum}}\big[{#3}\big]} %% series
+
+%% standard trig functions
+\renewcommand{\sin}[2]{\text{sin}^{#1}\text{(}#2\text{)\,}}
+%\renewcommand{\sin}[2]{\text{sin}^{#1}\left({#2}\right)}
+\renewcommand{\cos}[2]{\text{cos}^{#1}\text{(}#2\text{)\,}}
+\renewcommand{\tan}[2]{\text{tam}^{#1}\text{(}#2\text{)\,}}
+\renewcommand{\arcsin}[2]{\text{arcsin}^{#1}\text{(}#2\text{)\,}}
+\renewcommand{\arccos}[2]{\text{arccos}^{#1}\text{(}#2\text{)\,}}
+\renewcommand{\arctan}[2]{\text{arctan}^{#1}\text{(}#2\text{)\,}}
+
+%% further notes on notation:
+    %% algebraic multiplication is represented only by {*}
+    %% relations and cross products are {\times}
+    %% the dot product is {\cdot}
+    %% composites use {\circ}
+    %% vectors are represented with hats 
+    %% two-line arrows are "implies"
+    %% use {\mapsto} as a general-purpose arrow
+    %% use parenthesis, etc, liberally
+    %% never use {cos^-1} to mean {arccos}, etc.
+    %% a set of positive numbers does not include zero
+    %% zero is a natural number
+    %% vector lengths are represented as {||v||}
+%% go forth, and good luck.
